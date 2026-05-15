@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?><!-- definção como xml, versão e codificação do arquivo -->
+<!-- Permite reconhecer como manifesto do android -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"> <!-- usa atributos android -->
+    <!-- Configurações globais do apliativo -->
+    <!--
+	    android:allowBackup permite que a playstore faça backup das configurações do apliativo
+        android:icon busca o ic_launcher nas pastas mipmaps
+        android:supportsRtl designs são da direita para a esquerda
+        android:label define o nome do aplicativo visível para o usuário
+        android:theme busca por themas na biblioteca material
+    -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:label="Modelo"
+        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Responsável por exibir a tela e inteagir com o usuário -->
+        <!--
+            android:exported permite o aplicativo ser iniciado por outros aplicativos
+            android:name nome da classe da ativity / ponto de partida da aplicação
+         -->
+        <activity
+            android:exported="true"
+            android:name=".MainActivity">
+            <!-- Quais intenções, mensagens, ações podem ser respondidas pelo aplicativo -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" /> <!-- indica que essa activity é
+                o ponto inicial do apliativo -->
+                <category android:name="android.intent.category.LAUNCHER" /> <!-- idica que essa
+                activity/aplicativo deve estar na lista de aplicativos do sistema -->
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

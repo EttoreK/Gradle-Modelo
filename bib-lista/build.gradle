@@ -1,0 +1,8 @@
+// Declaração dos plugins do lista
+plugins {
+    alias libs.plugins.javaBib // plugin oficial para fazer uma biblioteca java
+    alias libs.plugins.buildLogicJavaGeral // plugin próprio de configurações gerais do java
+    alias libs.plugins.buildLogicJavaBib // plugin próprio de configurações de bibliotecas do java
+}
+// Biblioteras para serem usadas no código
+// dependencies {}

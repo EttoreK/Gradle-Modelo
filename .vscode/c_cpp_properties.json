@@ -1,0 +1,42 @@
+{
+    "configurations": [
+        {
+            "name": "Win64",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/app-linwin/src/main/headers",
+                "C:/msys64/ucrt64/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "_WIN64"
+            ],
+            "compilerPath": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+            "cStandard": "c23",
+            "cppStandard": "c++26",
+            "intelliSenseMode": "windows-gcc-x64"
+        },
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/app-linwin/src/main/headers",
+                "C:/msys64/mingw32/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "_WIN32"
+            ],
+            "compilerPath": "C:/msys64/mingw32/bin/g++.exe",
+            "cStandard": "c23",
+            "cppStandard": "c++26",
+            "intelliSenseMode": "windows-gcc-x86",
+            "mergeConfigurations": false
+        }
+    ],
+    "version": 4
+}

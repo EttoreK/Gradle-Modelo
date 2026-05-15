@@ -1,0 +1,6 @@
+// Declaração dos plugins do app
+plugins {
+    alias libs.plugins.buildLogicXcodeApp // plugin para configurações gerais do Xcode
+}
+// Biblioteras para serem usadas no código
+// dependencies {}

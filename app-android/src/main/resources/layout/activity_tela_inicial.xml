@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?><!-- definção como xml, versão e codificação do arquivo -->
+<!-- 
+    Define 6 botões para a tela Inicio
+    Cada botão redireiona para uma tela específica, decrita no nome do botão
+    xmlns:android define que a família dos elementos xml é android
+    xmlns:tools ajuda na visualização dos elementos no Android Studio
+    android:id definie o id do conjunto de configurações
+    android:layout_width define a largura do elemento para preencher
+    android:layout_height define a altura do elemento para preencher
+    android:orientation define a direção da disposição dos elementos
+    tools:context definie a que classe pertence os elementos
+ -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+</LinearLayout>

@@ -1,0 +1,47 @@
+{ 
+  "editor.rulers": [
+    { 
+      "column": 100, 
+      "color": "#9370DB" /* roxo médio */ 
+    },
+  ],
+  "files.exclude": {
+    // "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/bin": true
+  },
+  "gradle.nestedProjects": true,
+  "gradle.debug": true,
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.configuration.runtimes": [
+    { 
+      "name": "JavaSE-26", 
+      "path": "C:/Program Files/Java/jdk-26.0.1",
+      "default": true
+    },
+    { 
+      "name": "JavaSE-23", 
+      "path": "C:/Program Files/Java/jdk-23",
+      "default": false
+    },
+    { 
+      "name": "JavaSE-21", 
+      "path": "C:/Program Files/Java/jdk-21", 
+      "default": false
+    }
+  ],
+  "java.configuration.updateBuildConfiguration": "automatic", // "disabled",
+  "java.errors.incompleteClasspath.severity": "ignore",
+  "java.gradle.buildServer.enabled": "off",
+  "java.import.generatesMetadataFilesAtProjectRoot": true,
+  "java.import.gradle.enabled": true,
+  "java.import.gradle.home": "C:/Program Files/Android/Gradle/gradle-9.5.1",
+  "java.import.gradle.java.home": "C:/Program Files/Java/jdk-26.0.1",
+  "java.import.gradle.offline.enabled": false,
+  "java.import.gradle.wrapper.enabled": true,
+  "java.jdt.ls.androidSupport.enabled": "on",
+  "java.jdt.ls.java.home": "C:/Program Files/Java/jdk-26.0.1",
+  "java.jdt.ls.lombokSupport.enabled": false,
+  "java.search.scope": "all"
+}

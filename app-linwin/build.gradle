@@ -1,0 +1,8 @@
+// Declaração dos plugins da app
+plugins {
+    alias libs.plugins.cppApp // biblioteca official que permite a criação de aplicações c++
+    alias libs.plugins.cppUnitTest // biblioteca official que permite o teste de aplicações c++
+    alias libs.plugins.buildLogicCppApp // plugin para configurações gerais do app
+}
+// Biblioteras para serem usadas no código
+// dependencies {}

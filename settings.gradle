@@ -1,0 +1,81 @@
+// Administração de dependências
+pluginManagement {
+    includeBuild(buildlogicNome) // dependência para lógica de build
+    // Aonde buscar para cumprir as dependências
+    repositories {
+        google() // repositório oficial do google
+        mavenCentral() // dependências de java e android
+        gradlePluginPortal() // dependências especificas do gradle
+    }
+}
+// Pega arquivos .properties e carrega para a memória
+Closure<Map<String, String>> pegaProps = { String nomeArq ->
+    // Carrega os segredos locais UMA única vez
+    Properties props = new Properties()
+    File arqLocal = new File(rootDir, nomeArq)
+
+    if (arqLocal.exists()) {
+        arqLocal.withInputStream { props.load(it) }
+    }
+    return props
+}
+
+gradle.ext.propsLocal = pegaProps(localPropertiesNome)
+// Bloco para adicionar os plugins no classpath
+buildscript {
+    // Pega informações do plugin definido em libs.versions.toml
+    Closure<Map<String, String>> pegaPlugin = { String nomePlugin ->
+        File toml = new File(rootDir, settings.libsDir[3..-1])
+        if (!toml.exists()) return [id: null, ver: null]
+        String txt = toml.text
+        java.util.regex.Matcher pId = (txt =~ /(?m)^\s*${nomePlugin}\s*=\s*\{.*id\s*=\s*"([^"]+)"/)
+        java.util.regex.Matcher pVer = (txt =~ /(?m)^\s*${nomePlugin}\s*=\s*"([^"]+)"/)
+        return [
+            id: pId.find() ? pId.group(1) : null,
+            ver: pVer.find() ? pVer.group(1) : null
+        ]
+    }
+    repositories {
+        google() // repositório oficial do google
+        mavenCentral() // dependências de java e android
+        gradlePluginPortal() // dependências especificas do gradle
+    }
+    dependencies {
+        Map<String, String> plugin = pegaPlugin(pluginToolchain)
+        String id = plugin.id
+        String ver = plugin.ver
+
+        if (id && ver) {
+            // Formato obrigatório para o portal de plugins via Maven "id:id+pluginGradle:ver"
+            classpath String.join(subprojAppAndroid[0], id, id + pluginGradle, ver)
+            settings.ext.toolchain = plugin
+        }
+    }
+}
+// Resolução de dependências
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS) // força a declaração no settings
+    // Aonde buscar para cumprir as dependências
+    repositories {
+        google() // repositório oficial do google
+        mavenCentral() // dependências de java e android
+        gradlePluginPortal() // dependências especificas do gradle
+    }
+}
+// Aplicação do plugin toolchain
+if (settings.ext.has(pluginToolchain)) {
+    if (toolchain.id) { 
+        apply plugin: toolchain.id
+    }
+}
+
+rootProject.name = projNome // nome do diretório do projeto/diretório raiz
+// Nomes dos diretórios do código do app
+include(
+    subprojAppLinWin, 
+    subprojAppAndroid,
+    subprojAppDarwin,
+    subprojAppWeb, 
+    subprojLista, 
+    subprojFulcro
+)

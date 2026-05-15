@@ -1,0 +1,33 @@
+# Ignora o cache do Gradle do projeto
+.gradle
+local.properties
+# Ignora arquivos de configuração do vscode
+# .vscode
+# Ignora arquivos do Android Studio
+.idea
+.hprof
+# Ignora a pasta build
+build
+.build
+/.build
+# aplicações
+*.apk
+*.ap_
+# Arquivos gerados
+bin/
+gen/
+.settings
+.project
+.classpath
+# Xcode
+*.xcodeproj
+*.xcodeproj/*.xcworkspace/xcuserdata
+*.xcodeproj/xcuserdata
+xcuserdata/
+DerivedData/
+# macOS
+.DS_Store
+/Packages
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc
