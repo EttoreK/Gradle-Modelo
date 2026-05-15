@@ -6,6 +6,8 @@ Este repositório possui um modelo simples para desenvolvimento de aplicativos n
 
 Este código não funciona sozinho, ele depende dos submódulos de [gradle-build-logic](https://github.com/EttoreK/Gradle-Build-Logic.git) e [gradle-control](https://github.com/EttoreK/Gradle-Control.git) para completar a lógica de compilação.
 
+Altere a condição de versionamento de `.vscode` e `local.properties` no arquivo `.gitignore` antes de realizar o primeiro commit. Esses arquivos são de cunho individual e só estão presentes para efeito de modelo.
+
 # Uso
 
 1. Clone este repositório:

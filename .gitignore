@@ -1,6 +1,6 @@
 # Ignora o cache do Gradle do projeto
 .gradle
-local.properties
+#local.properties
 # Ignora arquivos de configuração do vscode
 # .vscode
 # Ignora arquivos do Android Studio
