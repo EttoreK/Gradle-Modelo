@@ -1,6 +1,5 @@
 # Ignora o cache do Gradle do projeto
 .gradle
-#local.properties
 # Ignora arquivos de configuração do vscode
 # .vscode
 # Ignora arquivos do Android Studio
@@ -31,3 +30,6 @@ DerivedData/
 .swiftpm/configuration/registries.json
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 .netrc
+# informações de entrada e saída
+# local.properties
+saida.txt

@@ -9,25 +9,25 @@ pluginManagement {
     }
 }
 // Pega arquivos .properties e carrega para a memória
-Closure<Map<String, String>> pegaProps = { String nomeArq ->
-    // Carrega os segredos locais UMA única vez
+Closure<Map<String, String>> pegaProps = { String arqNome ->
+    // Carrega os segredos locais una única vez
     Properties props = new Properties()
-    File arqLocal = new File(rootDir, nomeArq)
+    File localArq = new File(rootDir, arqNome)
 
-    if (arqLocal.exists()) {
-        arqLocal.withInputStream { props.load(it) }
+    if (localArq.exists()) {
+        localArq.withInputStream { props.load(it) }
     }
     return props
 }
 
-gradle.ext.propsLocal = pegaProps(localPropertiesNome)
+gradle.ext.propsLocal = pegaProps(localPropertiesNome) // permite o acesso em todo o escopo do proj
 // Bloco para adicionar os plugins no classpath
 buildscript {
     // Pega informações do plugin definido em libs.versions.toml
     Closure<Map<String, String>> pegaPlugin = { String nomePlugin ->
-        File toml = new File(rootDir, settings.libsDir[3..-1])
-        if (!toml.exists()) return [id: null, ver: null]
-        String txt = toml.text
+        File tomlArq = new File(rootDir, settings.libsDir[3..-1])
+        if (!tomlArq.exists()) return [id: null, ver: null]
+        String txt = tomlArq.text
         java.util.regex.Matcher pId = (txt =~ /(?m)^\s*${nomePlugin}\s*=\s*\{.*id\s*=\s*"([^"]+)"/)
         java.util.regex.Matcher pVer = (txt =~ /(?m)^\s*${nomePlugin}\s*=\s*"([^"]+)"/)
         return [
@@ -41,14 +41,14 @@ buildscript {
         gradlePluginPortal() // dependências especificas do gradle
     }
     dependencies {
-        Map<String, String> plugin = pegaPlugin(pluginToolchain)
-        String id = plugin.id
-        String ver = plugin.ver
+        Map<String, String> pluginMap = pegaPlugin(pluginToolchain)
+        String id = pluginMap.id
+        String ver = pluginMap.ver
 
         if (id && ver) {
             // Formato obrigatório para o portal de plugins via Maven "id:id+pluginGradle:ver"
             classpath String.join(subprojAppAndroid[0], id, id + pluginGradle, ver)
-            settings.ext.toolchain = plugin
+            settings.ext.toolchain = pluginMap
         }
     }
 }

@@ -7,5 +7,4 @@ plugins {
 // Biblioteras para serem usadas no código
 dependencies {
     api project(subprojLista) // api pega dados e compartilha
-    implementation libs.jsonJava // manipulação de json
 }
