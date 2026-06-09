@@ -3,12 +3,10 @@ plugins {
     alias libs.plugins.androidApp  // plugin oficial para aplicações Android
     alias libs.plugins.buildLogicAndroidApp // plugin para configurações gerais do app
 }
-// Atalhos para libs.versions.toml para facilitar a leitura
-Object val = libs.versions.valores.android
 // Definição das características do aplicativo
 android {
-    namespace = appIdPacote.toString().concat(val.app.get()) // id para o pacote do aplicativo
-    testNamespace = appIdPacote.toString().concat(val.test.get()) // id para testes do aplicativo
+    namespace = appIdPacote.toString().concat(javaMainPacote) // id para o pacote do aplicativo
+    testNamespace = appIdPacote.toString().concat(javaTestPacote) // id para testes do aplicativo
 }
 // Biblioteras para serem usadas no código
 dependencies {
