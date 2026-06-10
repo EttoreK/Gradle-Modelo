@@ -1,15 +1,15 @@
 { 
   "editor.rulers": [
     { 
-      "column": 100, 
-      "color": "#9370DB" /* roxo médio */ 
+      "column": 100
     },
   ],
   "files.exclude": {
     // "**/.classpath": true,
     "**/.project": true,
     "**/.settings": true,
-    "**/bin": true
+    "**/bin": true,
+    "**/.build": true
   },
   "gradle.nestedProjects": true,
   "gradle.debug": true,
@@ -20,16 +20,6 @@
       "path": "C:/Program Files/Java/jdk-26.0.1",
       "default": true
     },
-    { 
-      "name": "JavaSE-23", 
-      "path": "C:/Program Files/Java/jdk-23",
-      "default": false
-    },
-    { 
-      "name": "JavaSE-21", 
-      "path": "C:/Program Files/Java/jdk-21", 
-      "default": false
-    }
   ],
   "java.configuration.updateBuildConfiguration": "automatic", // "disabled",
   "java.errors.incompleteClasspath.severity": "ignore",
@@ -43,5 +33,13 @@
   "java.jdt.ls.androidSupport.enabled": "on",
   "java.jdt.ls.java.home": "C:/Program Files/Java/jdk-26.0.1",
   "java.jdt.ls.lombokSupport.enabled": false,
-  "java.search.scope": "all"
+  "java.search.scope": "all",
+  "java.project.referencedLibraries": [
+    "build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/**/*.jar",
+    "build/aarLibraries/**/*.jar",
+  ],
+  "java.project.sourcePaths": [
+    "src/main/java",
+    "src/test/java"
+  ]
 }
