@@ -1,6 +1,6 @@
 // Administração de dependências
 pluginManagement {
-    includeBuild(buildlogicNome) // dependência para lógica de build
+    includeBuild buildlogicNome // dependência para lógica de build
     // Aonde buscar para cumprir as dependências
     repositories {
         google() // repositório oficial do google
@@ -8,19 +8,6 @@ pluginManagement {
         gradlePluginPortal() // dependências especificas do gradle
     }
 }
-// Pega arquivos .properties e carrega para a memória
-Closure<Map<String, String>> pegaProps = { String arqNome ->
-    // Carrega os segredos locais una única vez
-    Properties props = new Properties()
-    File localArq = new File(rootDir, arqNome)
-
-    if (localArq.exists()) {
-        localArq.withInputStream { props.load(it) }
-    }
-    return props
-}
-
-gradle.ext.propsLocal = pegaProps(localPropertiesNome) // permite o acesso em todo o escopo do proj
 // Bloco para adicionar os plugins no classpath
 buildscript {
     // Pega informações do plugin definido em libs.versions.toml
@@ -30,10 +17,7 @@ buildscript {
         String txt = tomlArq.text
         java.util.regex.Matcher pId = (txt =~ /(?m)^\s*${nomePlugin}\s*=\s*\{.*id\s*=\s*"([^"]+)"/)
         java.util.regex.Matcher pVer = (txt =~ /(?m)^\s*${nomePlugin}\s*=\s*"([^"]+)"/)
-        return [
-            id: pId.find() ? pId.group(1) : null,
-            ver: pVer.find() ? pVer.group(1) : null
-        ]
+        return [ id: pId.find() ? pId.group(1) : null, ver: pVer.find() ? pVer.group(1) : null ]
     }
     repositories {
         google() // repositório oficial do google
@@ -48,8 +32,7 @@ buildscript {
         if (id && ver) {
             // Formato obrigatório para o portal de plugins via Maven "id:id+pluginGradle:ver"
             classpath String.join(subprojAppAndroid[0], id, id + pluginGradle, ver)
-            settings.ext.toolchain = pluginMap
-        }
+        } else { throw new GradleException() }
     }
 }
 // Resolução de dependências
@@ -62,12 +45,10 @@ dependencyResolutionManagement {
         gradlePluginPortal() // dependências especificas do gradle
     }
 }
-// Aplicação do plugin toolchain
-if (settings.ext.has(pluginToolchain)) {
-    if (toolchain.id) { 
-        apply plugin: toolchain.id
-    }
-}
+// Aplicação do plugin toolchains.foojay-resolver-convention
+apply plugin: ((new File(rootDir, settings.libsDir[3..-1]).text =~ (
+    /(?m)^\s*${pluginToolchain}\s*=\s*\{.*id\s*=\s*"([^"]+)"/
+)).findResult { it[1] })
 
 rootProject.name = projNome // nome do diretório do projeto/diretório raiz
 // Nomes dos diretórios do código do app
