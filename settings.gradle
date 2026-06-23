@@ -50,6 +50,8 @@ apply plugin: ((new File(rootDir, settings.libsDir[3..-1]).text =~ (
     /(?m)^\s*${pluginToolchain}\s*=\s*\{.*id\s*=\s*"([^"]+)"/
 )).findResult { it[1] })
 
+// enableFeaturePreview(noParentProjects)
+
 rootProject.name = projNome // nome do diretório do projeto/diretório raiz
 // Nomes dos diretórios do código do app
 include(

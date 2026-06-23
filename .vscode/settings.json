@@ -1,7 +1,8 @@
 { 
   "editor.rulers": [
     { 
-      "column": 100
+      "column": 100, 
+      "color": "#9370DB" /* roxo médio */ 
     },
   ],
   "files.exclude": {
@@ -26,7 +27,7 @@
   "java.gradle.buildServer.enabled": "off",
   "java.import.generatesMetadataFilesAtProjectRoot": true,
   "java.import.gradle.enabled": true,
-  "java.import.gradle.home": "C:/Program Files/Android/Gradle/gradle-9.5.1",
+  "java.import.gradle.home": "C:/Program Files/Android/Gradle/gradle-9.6.0",
   "java.import.gradle.java.home": "C:/Program Files/Java/jdk-26.0.1",
   "java.import.gradle.offline.enabled": false,
   "java.import.gradle.wrapper.enabled": true,
