@@ -3,11 +3,6 @@ plugins {
     alias libs.plugins.androidApp  // plugin oficial para aplicações Android
     alias libs.plugins.buildLogicAndroidApp // plugin para configurações gerais do app
 }
-// Definição das características do aplicativo
-android {
-    namespace = appIdPacote.toString().concat(javaMainPacote) // id para o pacote do aplicativo
-    testNamespace = appIdPacote.toString().concat(javaTestPacote) // id para testes do aplicativo
-}
 // Biblioteras para serem usadas no código
 dependencies {
     implementation project(subprojFulcro) // projetos sem acesso às dependências

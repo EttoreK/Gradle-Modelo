@@ -12,7 +12,7 @@ pluginManagement {
 buildscript {
     // Pega informações do plugin definido em libs.versions.toml
     Closure<Map<String, String>> pegaPlugin = { String nomePlugin ->
-        File tomlArq = new File(rootDir, settings.libsDir[3..-1])
+        File tomlArq = new File(rootDir, settings.libsDir).canonicalFile
         if (!tomlArq.exists()) return [id: null, ver: null]
         String txt = tomlArq.text
         java.util.regex.Matcher pId = (txt =~ /(?m)^\s*${nomePlugin}\s*=\s*\{.*id\s*=\s*"([^"]+)"/)
@@ -46,13 +46,13 @@ dependencyResolutionManagement {
     }
 }
 // Aplicação do plugin toolchains.foojay-resolver-convention
-apply plugin: ((new File(rootDir, settings.libsDir[3..-1]).text =~ (
+apply plugin: ((new File(rootDir, settings.libsDir).canonicalFile.text =~ (
     /(?m)^\s*${pluginToolchain}\s*=\s*\{.*id\s*=\s*"([^"]+)"/
 )).findResult { it[1] })
 
-// enableFeaturePreview(noParentProjects)
+enableFeaturePreview(noParentProjects)
 
-rootProject.name = projNome // nome do diretório do projeto/diretório raiz
+rootProject.name = settingsDir.name // nome do diretório do projeto/diretório raiz
 // Nomes dos diretórios do código do app
 include(
     subprojAppLinWin, 

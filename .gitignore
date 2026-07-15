@@ -32,4 +32,5 @@ DerivedData/
 .netrc
 # informações de entrada e saída
 # local.properties
+# secreto.properties
 saida.txt
