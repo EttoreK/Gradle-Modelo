@@ -42,7 +42,7 @@ dependencyResolutionManagement {
     repositories {
         google() // repositório oficial do google
         mavenCentral() // dependências de java e android
-        gradlePluginPortal() // dependências especificas do gradle
+        // gradlePluginPortal() // dependências especificas do gradle
     }
 }
 // Aplicação do plugin toolchains.foojay-resolver-convention
@@ -50,7 +50,9 @@ apply plugin: ((new File(rootDir, settings.libsDir).canonicalFile.text =~ (
     /(?m)^\s*${pluginToolchain}\s*=\s*\{.*id\s*=\s*"([^"]+)"/
 )).findResult { it[1] })
 
+enableFeaturePreview(enchancedGrphOrdering)
 enableFeaturePreview(noParentProjects)
+enableFeaturePreview(typesafeProjectAccessors)
 
 rootProject.name = settingsDir.name // nome do diretório do projeto/diretório raiz
 // Nomes dos diretórios do código do app
