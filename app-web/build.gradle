@@ -3,7 +3,7 @@ plugins {
     // alias libs.plugins.buildLogicJavaWebApp // plugin personalizado exclusivo para java web
     alias libs.plugins.buildLogicCppWebApp // plugin personalizado exclusivo para cpp web
 }
-// Biblioteras para serem usadas no código
+// Bibliotecas para serem usadas no código
 dependencies {
     implementation project(subprojFulcro) // depende de fulcro
 }

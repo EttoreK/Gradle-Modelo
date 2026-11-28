@@ -2,5 +2,5 @@
 plugins {
     alias libs.plugins.buildLogicSwiftDarwinApp // plugin para configurações gerais do Xcode
 }
-// Biblioteras para serem usadas no código
+// Bibliotecas para serem usadas no código
 // dependencies {}

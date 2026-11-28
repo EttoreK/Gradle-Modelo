@@ -2,7 +2,7 @@
 plugins {
     alias libs.plugins.buildLogicJavaBibActions // plugin próprio para configurar bibliotecas java
 }
-// Biblioteras para serem usadas no código
+// Bibliotecas para serem usadas no código
 dependencies {
     api project(subprojLista) // api pega dados e compartilha
 }

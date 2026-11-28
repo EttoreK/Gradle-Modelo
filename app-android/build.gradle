@@ -2,7 +2,7 @@
 plugins {
     alias libs.plugins.buildLogicJavaAndroidApp // plugin para configurações gerais do app
 }
-// Biblioteras para serem usadas no código
+// Bibliotecas para serem usadas no código
 dependencies {
     implementation project(subprojFulcro) // projetos sem acesso às dependências
 }
