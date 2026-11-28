@@ -1,6 +1,5 @@
 // Declaração dos plugins da app
 plugins {
-    alias libs.plugins.androidApp  // plugin oficial para aplicações Android
     alias libs.plugins.buildLogicJavaAndroidApp // plugin para configurações gerais do app
 }
 // Biblioteras para serem usadas no código

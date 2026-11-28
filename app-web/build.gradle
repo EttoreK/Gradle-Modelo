@@ -1,9 +1,7 @@
 // Declaração dos plugins da app
 plugins {
-    alias libs.plugins.javaApp // plugin oficial para aplicações java
-    alias libs.plugins.springBoot // plugin oficial do springboot
-    alias libs.plugins.buildLogicJavaApp // plugin personalizado com configurações java
-    alias libs.plugins.buildLogicJavaWebApp // plugin personalizado exclusivo para java web
+    // alias libs.plugins.buildLogicJavaWebApp // plugin personalizado exclusivo para java web
+    alias libs.plugins.buildLogicCppWebApp // plugin personalizado exclusivo para cpp web
 }
 // Biblioteras para serem usadas no código
 dependencies {
